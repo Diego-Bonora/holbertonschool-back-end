@@ -10,15 +10,17 @@ if __name__ == "__main__":
     USER = sys.argv[1]
     USER_INFO = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}'.format(
-            USER)).json()
+            USER))
+    USER_INFO_json = USER_INFO.json()
     TODO = requests.get(
         'https://jsonplaceholder.typicode.com/todos?userId={}'.format(
-            USER)).json()
-    EMPLOYEE_NAME = USER_INFO["name"]
-    TOTAL_NUMBER_OF_TASKS = len(TODO)
+            USER))
+    TODO_json = TODO.json()
+    EMPLOYEE_NAME = USER_INFO_json["name"]
+    TOTAL_NUMBER_OF_TASKS = len(TODO_json)
     NUMBER_OF_DONE_TASKS = 0
     tasks_done = ""
-    for tasks in TODO:
+    for tasks in TODO_json:
         if tasks["completed"]:
             task = tasks["title"]
             tasks_done += f"\t {task}\n"
