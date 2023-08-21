@@ -16,16 +16,19 @@ if __name__ == "__main__":
         'https://jsonplaceholder.typicode.com/todos?userId={}'.format(
             USER))
     TODO_json = TODO.json()
-    EMPLOYEE_NAME = USER_INFO_json["name"]
-    TOTAL_NUMBER_OF_TASKS = len(TODO_json)
+    TOTAL_NUMBER_OF_TASKS = 0
     NUMBER_OF_DONE_TASKS = 0
     tasks_done = []
     for tasks in TODO_json:
         if tasks["completed"]:
             tasks_done.append(tasks["title"])
             NUMBER_OF_DONE_TASKS += 1
+            TOTAL_NUMBER_OF_TASKS += 1
+        else:
+            TOTAL_NUMBER_OF_TASKS += 1
 
     print(
-        f"Employee {EMPLOYEE_NAME} is done with tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+        f"Employee {USER_INFO_json['name']} is done with\
+tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
     for tasks in tasks_done:
         print(f"\t {tasks}")
