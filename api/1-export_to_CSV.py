@@ -18,8 +18,8 @@ if __name__ == "__main__":
 
     list_to_csv = []
     for values in TODO:
-        new_list = [str(USER_INFO["id"]), str(USER_INFO["username"]),
-                    str(values["completed"]), str(values["title"])]
+        new_list = [USER_INFO["id"], USER_INFO["username"],
+                    values["completed"], values["title"]]
         list_to_csv.append(new_list)
 
     with open("{}.csv".format(USER), mode="w", encoding="UTF8") as file:
