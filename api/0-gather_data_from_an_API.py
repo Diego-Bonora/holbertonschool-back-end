@@ -19,14 +19,13 @@ if __name__ == "__main__":
     EMPLOYEE_NAME = USER_INFO_json["name"]
     TOTAL_NUMBER_OF_TASKS = len(TODO_json)
     NUMBER_OF_DONE_TASKS = 0
-    tasks_done = ""
+    tasks_done = []
     for tasks in TODO_json:
         if tasks["completed"]:
-            task = tasks["title"]
-            tasks_done += f"\t {task}\n"
+            tasks_done.append(tasks["title"])
             NUMBER_OF_DONE_TASKS += 1
 
-    info = f"Employee {EMPLOYEE_NAME} is done with tasks(\
-{NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):\n" + \
-        tasks_done[:-1]
-    print(info)
+    print(
+        f"Employee {EMPLOYEE_NAME} is done with tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+    for tasks in tasks_done:
+        print(f"\t {tasks}")
