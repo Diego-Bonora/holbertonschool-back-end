@@ -18,4 +18,4 @@ if __name__ == "__main__":
     with open("{}.csv".format(USER), mode="w", encoding="UTF8") as file:
         for values in TODO:
             file.write(f"{USER_INFO['id']}, {USER_INFO['username']},\
-{values['completed']}, {values['title']}\n")
+ {values['completed']}, {values['title']}\n")
