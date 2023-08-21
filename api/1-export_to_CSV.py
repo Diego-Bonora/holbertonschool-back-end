@@ -3,7 +3,6 @@
 requests TODO from jsonplaceholder and
 creates a csv with the info
 """
-import csv
 import requests
 import sys
 
@@ -18,10 +17,11 @@ if __name__ == "__main__":
 
     list_to_csv = []
     for values in TODO:
-        new_list = [USER_INFO["id"], USER_INFO["username"],
-                    values["completed"], values["title"]]
+        new_list = [str(USER_INFO["id"]), str(USER_INFO["name"]),
+                    str(values["completed"]), str(values["title"])]
         list_to_csv.append(new_list)
 
     with open("{}.csv".format(USER), mode="w", encoding="UTF8") as file:
-        writer = csv.writer(file)
-        writer.writerows(list_to_csv)
+        for values in list_to_csv:
+            file.write('"{}","{}","{}","{}"\n'.format(
+                values[0], values[1], values[2], values[3]))
