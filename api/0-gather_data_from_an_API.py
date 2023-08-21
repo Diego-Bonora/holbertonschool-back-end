@@ -20,10 +20,11 @@ if __name__ == "__main__":
     tasks_done = ""
     for tasks in TODO:
         if tasks["completed"]:
-            tasks_done += "\t {}\n".format(tasks["title"])
+            task = tasks["title"]
+            tasks_done += f"\t {task}\n"
             NUMBER_OF_DONE_TASKS += 1
 
-    info = "Employee {} is done with tasks({}/{}):\n".format(
-        EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS,
-        TOTAL_NUMBER_OF_TASKS) + tasks_done[:-1]
+    info = f"Employee {EMPLOYEE_NAME} is done with tasks(\
+{NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):\n" + \
+        tasks_done[:-1]
     print(info)
