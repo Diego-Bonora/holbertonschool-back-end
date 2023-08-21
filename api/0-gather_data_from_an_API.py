@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-""" 
-requests TODO from jsonplaceholder and 
+"""
+requests TODO from jsonplaceholder and
 prints the employee with all the tasks done
 """
 import requests
@@ -16,13 +16,14 @@ if __name__ == "__main__":
             USER)).json()
     EMPLOYEE_NAME = USER_INFO["name"]
     TOTAL_NUMBER_OF_TASKS = len(TODO)
-    tasks_done = []
+    NUMBER_OF_DONE_TASKS = 0
+    tasks_done = ""
     for tasks in TODO:
-        if tasks["completed"] == True:
-            tasks_done.append(tasks)
-    NUMBER_OF_DONE_TASKS = len(tasks_done)
+        if tasks["completed"]:
+            tasks_done += "\t {}\n".format(tasks["title"])
+            NUMBER_OF_DONE_TASKS += 1
 
-    print("Employee {} is done with tasks({}/{}):".format(EMPLOYEE_NAME,
-          NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
-    for tasks in tasks_done:
-        print("\t {}".format(tasks["title"]))
+    info = "Employee {} is done with tasks({}/{}):\n".format(
+        EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS,
+        TOTAL_NUMBER_OF_TASKS) + tasks_done[:-1]
+    print(info)
