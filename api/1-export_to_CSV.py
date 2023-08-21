@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     list_to_csv = []
     for values in TODO:
-        new_list = [str(USER_INFO["id"]), str(USER_INFO["name"]),
+        new_list = [str(USER_INFO["id"]), str(USER_INFO["username"]),
                     str(values["completed"]), str(values["title"])]
         list_to_csv.append(new_list)
 
