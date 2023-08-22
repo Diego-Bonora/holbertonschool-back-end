@@ -17,9 +17,9 @@ if __name__ == "__main__":
             'https://jsonplaceholder.typicode.com/todos?userId={}'.format(
                 USERS["id"])).json()
         for values in TODO:
-            new_dict = {"task": "{}".format(str(
-                values["title"])), "completed": values["completed"],
-                "username": "{}".format(str(USERS["username"]))}
+            new_dict = {"username": "{}".format(str(USERS["username"])), "task": "{}".format(str(
+                values["title"])), "completed": values["completed"]
+            }
             list_to_json.append(new_dict)
         dict_to_json["{}".format(str(USERS["id"]))] = list_to_json
 
