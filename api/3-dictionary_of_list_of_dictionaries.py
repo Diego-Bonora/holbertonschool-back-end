@@ -17,8 +17,9 @@ if __name__ == "__main__":
         list_to_json = []
         for values in TODO:
             if str(USERS["id"]) == str(values["userId"]):
-                new_dict = {"username": "{}".format(str(USERS["username"])), "task": "{}".format(str(
-                    values["title"])), "completed": values["completed"]}
+                new_dict = {"username": "{}".format(str(USERS["username"])),
+                            "task": "{}".format(str(values["title"])),
+                            "completed": values["completed"]}
                 list_to_json.append(new_dict)
         dict_to_json["{}".format(str(USERS["id"]))] = list_to_json
 
