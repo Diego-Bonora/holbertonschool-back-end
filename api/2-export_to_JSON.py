@@ -18,8 +18,9 @@ if __name__ == "__main__":
 
     list_to_json = []
     for values in TODO:
-        new_list = {"task": "{}".format(str(values["title"])), "completed":
-                    values["completed"], "username": "{}".format(str(USER_INFO["username"]))}
+        new_list = {"task": "{}".format(str(
+            values["title"])), "completed": values["completed"],
+            "username": "{}".format(str(USER_INFO["username"]))}
         list_to_json.append(new_list)
     dict_to_json = {"{}".format(str(USER_INFO["id"])): list_to_json}
 
